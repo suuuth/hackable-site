@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="../../styles/compiled/css/style.css">
+  <title>Hakabl syte</title>
+</head>
+<body>
+
+  <p>Hello World!</p>
+
+  <form action="/getUsers" method="post">
+    <input name="name" type="text" placeholder="Type here to search...">
+    <input type="submit" value="Get!">
+  </form>
+
+  <% if ( typeof(users) != 'undefined' && typeof(products) != 'undefined' ) { %>
+    <div class="two-col">
+      <div>
+        <% Object.keys(users).forEach(function (id) { %>
+          <p><%= users[id].name %></p>
+        <% }) %>
+      </div>
+      <div>
+        <% Object.keys(products).forEach(function (id) { %>
+          <p><%= products[id].product %>: <span>$<%= products[id].price %></span></p>
+        <% }) %>
+      </div>
+    </div>
+  <% } %>
+
+  <% if ( typeof(user) != 'undefined' ) { %>
+    <p class="return"><%= user.name %></p>
+  <% } %>
+
+</body>
+</html>

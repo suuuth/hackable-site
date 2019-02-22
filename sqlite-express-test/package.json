@@ -1,0 +1,33 @@
+{
+  "name": "Kevin-Sutherland-Learn-SQLite",
+  "version": "1.0.0",
+  "scripts": {
+    "dev:sass": "node-sass public/styles/source/scss/style.scss --output=public/styles/compiled/css --output-style=compressed --source-map=true",
+    "dev:server": "nodemon server.js",
+    "dev": "run-s dev:*",
+    "build:stylelint": "stylelint 'public/styles/source/scss/*.scss'",
+    "build:sass": "node-sass public/styles/source/scss/style.scss --output=public/styles/compiled/css --output-style=compressed --source-map=true",
+    "build:html": "htmlhint *.html",
+    "build:js": "standard *.js",
+    "build": "run-s build:*",
+    "deploy": "run-s build"
+  },
+  "devDependencies": {
+    "htmlhint": "^0.9.13",
+    "live-server": "^1.2.0",
+    "node-sass": "^4.8.3",
+    "npm-run-all": "^4.1.2",
+    "standard": "^11.0.1",
+    "stylelint": "^9.2.0",
+    "stylelint-config-standard": "^18.2.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.5.9",
+    "express": "^4.16.3",
+    "multer": "^1.4.1",
+    "nodemon": "^1.11.0",
+    "sqlite3": "^4.0.6",
+    "surge": "^0.20.1"
+  }
+}
