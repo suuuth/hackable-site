@@ -1,6 +1,7 @@
 
 /* Author: Kevin Sutherland */
 
+/* Normalize */
 html,
 body {
   background: #333;
@@ -11,17 +12,50 @@ body {
   text-align: center;
 }
 
+body {
+  padding: 50px 0 0 0;
+}
+
 form {
   margin: 30px 0;
 }
 
-.two-col div {
-  display: inline-block;
-  vertical-align: top;
-  width: 200px;
+p {
+  margin: 0;
 }
 
+
+/* Page Structure */
+.two-col {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 1000px;
+  width: 80%;
+}
+
+.two-col div {
+  width: 50%;
+}
+
+.two-col div:first-child {
+  padding-right: 50px;
+}
+
+.mt-m {
+  margin-top: 50px;
+}
+
+
+/* Returning Values */
 .return {
-  background: cyan;
   color: black;
+}
+
+.return.success {
+  background: cyan;
+}
+
+.return.fail {
+  background: red;
 }

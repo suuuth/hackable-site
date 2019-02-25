@@ -7,31 +7,47 @@
 </head>
 <body>
 
-  <p>Hello World!</p>
+<p>Hello World!</p>
 
-  <form action="/getUsers" method="post">
-    <input name="name" type="text" placeholder="Type here to search...">
-    <input type="submit" value="Get!">
-  </form>
+<div class="two-col mt-m">
+  <div>
+    <p>Vulnerable</p>
+    <form action="/getUsersVuln" method="post">
+      <input name="name" type="text" placeholder="Type here to search...">
+      <input type="submit" value="Get!">
+    </form>
+  </div>
+  <div>
+    <p>Safe</p>
+    <form action="/getUsersSafe" method="post">
+      <input name="name" type="text" placeholder="Type here to search...">
+      <input type="submit" value="Get!">
+    </form>
+  </div>
+</div>
 
-  <% if ( typeof(users) != 'undefined' && typeof(products) != 'undefined' ) { %>
-    <div class="two-col">
-      <div>
-        <% Object.keys(users).forEach(function (id) { %>
-          <p><%= users[id].name %></p>
-        <% }) %>
-      </div>
-      <div>
-        <% Object.keys(products).forEach(function (id) { %>
-          <p><%= products[id].product %>: <span>$<%= products[id].price %></span></p>
-        <% }) %>
-      </div>
+<% if ( typeof(users) != 'undefined' && typeof(products) != 'undefined' ) { %>
+  <div class="two-col">
+    <div>
+      <% Object.keys(users).forEach(function (id) { %>
+        <p><%= users[id].name %></p>
+      <% }) %>
     </div>
-  <% } %>
+    <div>
+      <% Object.keys(products).forEach(function (id) { %>
+        <p><%= products[id].product %>: <span>$<%= products[id].price %></span></p>
+      <% }) %>
+    </div>
+  </div>
+<% } %>
 
-  <% if ( typeof(user) != 'undefined' ) { %>
-    <p class="return"><%= user.name %></p>
+<% if ( typeof(user) != 'undefined' ) { %>
+  <% if ( typeof(user) === 'object' ) { %>
+    <p class="return success"><%= user.name %></p>
+  <% } else { %>
+    <p class="return fail"><%= user %></p>
   <% } %>
+<% } %>
 
 </body>
 </html>
